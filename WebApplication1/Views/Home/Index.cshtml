@@ -1,0 +1,15 @@
+﻿@model WebApplication1.Models.EmployeeModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    <div class="text-left">
+        @Html.DropDownListFor(m => m.EmployeeId, new SelectList(Model.EmployeeList, "Value", "Text"), new { @class = "form-control", @style = "width:50%;" })<br />
+        <input type="submit" value="Submit" /><br />
+        <b>
+            <b>EmpID: </b>  @ViewBag.SelectedValue<br />
+            <b>Empname: </b> @ViewBag.SelectedText
+        </b>
+    </div>
+}
