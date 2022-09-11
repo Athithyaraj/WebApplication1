@@ -24,7 +24,8 @@ namespace WebApplication1.Controllers
             employeeModel.EmployeeList.Add(new SelectListItem
             {
                 Value = "",
-                Text = "Select Employee"
+                Text = "Select Employee",
+              //  Department = ""
             });
 
             TestDBContext testDBContext = new TestDBContext();
@@ -34,7 +35,8 @@ namespace WebApplication1.Controllers
                 employeeModel.EmployeeList.Add(new SelectListItem
                 {
                     Value = Convert.ToString(item.Id),
-                    Text = item.EmployeeName
+                    Text = item.EmployeeName,
+               //     Department =item.Department
                 });
             }
             return View(employeeModel);
@@ -46,7 +48,8 @@ namespace WebApplication1.Controllers
             employeeModel.EmployeeList.Add(new SelectListItem
             {
                 Value = "",
-                Text = "Select Employee"
+                Text = "Select Employee",
+            //    Department =""
             });
 
             TestDBContext testDBContext = new TestDBContext();
@@ -56,11 +59,13 @@ namespace WebApplication1.Controllers
                 employeeModel.EmployeeList.Add(new SelectListItem
                 {
                     Value = Convert.ToString(item.Id),
-                    Text = item.EmployeeName
+                    Text = item.EmployeeName,
+                   // Department = item.Department
                 });
             }
             ViewBag.SelectedValue = employeeModel.EmployeeId;
             ViewBag.SelectedText = data.Where(m => m.Id == employeeModel.EmployeeId).FirstOrDefault().EmployeeName;
+            ViewBag.SelectedDepartment = data.Where(m => m.Id == employeeModel.EmployeeId).FirstOrDefault().Department;
             return View(employeeModel);
         }
     }

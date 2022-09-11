@@ -48,7 +48,7 @@ namespace WebApplication1.data
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                //entity.Property(e => e.Location)
+                //entity.Property(e => e.Department)
                 //    .HasMaxLength(50)
                 //    .IsUnicode(false);
             });
